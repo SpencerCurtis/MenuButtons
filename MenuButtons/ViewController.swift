@@ -59,12 +59,12 @@ class ViewController: UIViewController {
             // All animations are finished here.
             self.subMenuButtonsAreShown = false
             self.subMenuButtonsAreAnimating = false
-
+            
         })
     }
     
     func show(subMenuButtons: [UIButton], distanceFromMenuButton: Double, percentOfFullCircle: Double, rotation: Double, withDuration: Double) {
-    
+        
         //subMenuButtons - The buttons you want to animate out from the main menu button.
         
         // distanceFromMenuButton - Self explanatory
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                 
                 let currentButtonIndexAsDouble = Double(currentButtonIndex)
                 
-                // The keyframe animations make it possible to animate each button with a slight delay. 
+                // The keyframe animations make it possible to animate each button with a slight delay.
                 
                 UIView.addKeyframe(withRelativeStartTime: delay, relativeDuration: 1, animations: {
                     button.alpha = 1
@@ -130,7 +130,8 @@ class ViewController: UIViewController {
         mainMenuButton.layer.cornerRadius = mainMenuButton.layer.bounds.width / 1.8
         mainMenuButton.layer.borderColor = UIColor.colorFrom(hex: "76D2E7").cgColor
         mainMenuButton.layer.borderWidth = 0.5
-        mainMenuButton.backgroundColor = .white
+        mainMenuButton.backgroundColor = UIColor.colorFrom(hex: "7D7C7F")
+        mainMenuButton.setTitleColor(UIColor.colorFrom(hex: "76D2E7"), for: .normal)
     }
     
     // This is just to make example buttons to use with the show/hide functions
@@ -144,13 +145,17 @@ class ViewController: UIViewController {
             let subMenuButtonFrame = CGRect(x: 0, y: 0, width: size, height: size)
             
             let subMenuButton = UIButton(frame: subMenuButtonFrame)
+            
             subMenuButton.setTitle("\(i)", for: .normal)
-            subMenuButton.clipsToBounds = true
             subMenuButton.setTitleColor(.black, for: .normal)
+            
+            subMenuButton.clipsToBounds = true
             subMenuButton.layer.cornerRadius = subMenuButton.layer.frame.size.width / 2
             subMenuButton.layer.borderColor = UIColor.colorFrom(hex: "76D2E7").cgColor
             subMenuButton.layer.borderWidth = 0.5
-            subMenuButton.backgroundColor = .white
+            
+            subMenuButton.backgroundColor = UIColor.colorFrom(hex: "7D7C7F")
+            subMenuButton.setTitleColor(UIColor.colorFrom(hex: "76D2E7"), for: .normal)
             
             subMenuButton.center = mainMenuButton.center
             subMenuButton.alpha = 0
